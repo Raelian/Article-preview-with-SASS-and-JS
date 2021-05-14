@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+@import "fa/scss/fontawesome.scss";
+
+/* Colors */
+$dark-gray-blue: hsl(217, 19%, 35%);
+$dark-blue: hsl(214, 17%, 51%);
+$grayish-blue: hsl(212, 23%, 69%);
+$light-gray-blue: hsl(210, 46%, 95%);
+/* Custom hover color */
+$hover: hsla(210, 17%, 89%, 0.897);
+/* Font family Manrope */
+$ff-manrope: 'Manrope', sans-serif;
+
+:root {
+    font-size: 13px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: $light-gray-blue;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: $ff-manrope;
+}
+
+.wrapper {
+    background-color: white;
+    margin: 5.9em auto 1em;
+    height: 500px;
+    width: 326px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &__img {
+        background-image: url(images/drawers.jpg);
+        background-size: 100% 242px;
+        width: 100%;
+        height: 200px; 
+    }
+
+    &__main {
+        position: relative;
+        width: 100%;
+        text-align: left;
+        padding: 2.8em 2.6em;
+    }
+
+    &__heading {
+        font-size: 1.2em;
+        color: $dark-gray-blue;
+    }
+
+    &__text {
+        color: $dark-blue;
+        margin-top: 1.1em;
+        margin-right: .2em;
+        line-height: 1.5rem;
+    }
+
+    .footer {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        height: 70px;
+        margin-top: 2.7em;
+
+        &__profile {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+        }
+
+        &__info {
+            margin: .3em 1.5em;
+        }
+
+        &__name {
+            color: $dark-gray-blue;
+            font-weight: bolder;
+        }
+
+        &__date {
+            margin-top: .1em;
+            color: $grayish-blue;
+        }
+
+        &__button {
+            position: absolute;
+            margin-top: .6em;
+            right: 0;
+            width: 32px;
+            height: 32px;       
+            outline: none;      
+            border: 1px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 999;
+
+            &--active {
+                background-color: $dark-blue;
+                color: $light-gray-blue;
+
+                &:focus {
+                    border: 2px solid $light-gray-blue;
+                }
+            }
+
+            &--inactive {
+                background-color: $light-gray-blue;
+                color: $dark-blue;
+
+                &:focus {
+                    border: 2px solid $dark-blue;
+                }
+            }
+
+            .fa-share {
+                color: inherit;
+            }
+        }
+    }
+
+    .share-bar {
+        position: absolute;
+        flex-direction: row;
+        bottom: 40px;
+        right: 0;
+        width: 100%;
+        height: 75px;
+        padding: 1.7em 2.7em;
+        background-color: $dark-gray-blue;
+        z-index: 998;
+
+        &__share {
+            text-transform: uppercase;
+            color: $grayish-blue;
+            letter-spacing: .4em;
+        }
+
+        &__links {
+            height: 20px;
+            font-size: 1.3em;
+            margin-top: -.2em;
+            margin-left: .9em;
+            text-decoration: none;
+
+            .fab {
+                color: $light-gray-blue;
+
+                &:hover {
+                    color: $hover;
+                }
+            }
+        }
+
+        &--hide {display: none;}
+        &--show {display: flex;}
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        width: 730px;
+        height: 280px;
+        margin: 20em auto 1em;
+        overflow: visible;
+
+        &__img {
+            background-image: url(images/drawers.jpg);
+            background-size: 350px 100%;
+            background-repeat: no-repeat;
+            width: 284px;
+            height: 100%;
+            min-height: 280px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        &__main {
+            margin: 0;
+            padding: 2.5em 3em 3em 3em;
+            width: 444px;
+        }
+
+        &__heading {
+            font-size: 1.5em;
+        }
+
+        .footer {
+            margin-top: 1.4em;
+
+            &__button--active:focus {
+                border: 2px solid $dark-gray-blue;
+            }
+        }
+
+        .share-bar {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 50px;
+            border-radius: 10px;
+            right: -75px;
+            bottom: 96px;
+
+            &::before {
+                content: "";
+                background-color: $dark-gray-blue;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                bottom: -10px;
+                right: 48%;
+                transform: rotate(45deg);
+            }
+
+            &__links {
+                font-size: 1.2em;
+            }
+        }
+    } 
+}
